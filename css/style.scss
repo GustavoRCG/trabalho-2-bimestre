@@ -1,0 +1,43 @@
+$primary: #6d19ae;
+$secondary: #FAF6F1;
+$font1: "jersey 15", Inter, Arial;
+$font2: Inter, Arial, Tahoma;
+
+
+.navbar {
+    background-color: $secondary;
+
+    .navbar-brand img {
+        height: 60px;
+    }
+
+    .nav-link {
+        font: 25px $font1;
+        color: #000;
+        text-transform: uppercase;
+
+        &:hover {
+            color: $primary
+        }
+    }
+    .navbar-nav .nav-link.show{
+        color:$primary
+    }
+    .dropdown-menu{
+        background: $secondary;
+        border-radius: 0;
+        border-top: 5px solid $primary;
+        .dropdown-item{
+            font: 20px $font1;
+            text-transform: uppercase;
+            color:$primary;
+        }
+    }
+    .btn{
+        margin-left: 10px;
+    }
+}
+.btn{
+    font: 20px $font1;
+    border-radius: 0;
+}
