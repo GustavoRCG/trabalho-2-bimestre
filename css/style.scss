@@ -1,4 +1,4 @@
-$primary: #6d19ae;
+$primary: #A45A1F;
 $secondary: #FAF6F1;
 $font1: "jersey 15", Inter, Arial;
 $font2: Inter, Arial, Tahoma;
@@ -20,24 +20,36 @@ $font2: Inter, Arial, Tahoma;
             color: $primary
         }
     }
-    .navbar-nav .nav-link.show{
-        color:$primary
+
+    .navbar-nav .nav-link.show {
+        color: $primary
     }
-    .dropdown-menu{
+
+    .dropdown-menu {
         background: $secondary;
         border-radius: 0;
         border-top: 5px solid $primary;
-        .dropdown-item{
+
+        .dropdown-item {
             font: 20px $font1;
             text-transform: uppercase;
-            color:$primary;
+            color: $primary;
         }
     }
-    .btn{
+
+    .btn {
         margin-left: 10px;
     }
 }
-.btn{
+
+.btn {
     font: 20px $font1;
     border-radius: 0;
+}
+
+.main {}
+
+.card {
+    justify-content: center;
+
 }

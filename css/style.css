@@ -10,20 +10,20 @@
   text-transform: uppercase;
 }
 .navbar .nav-link:hover {
-  color: #6d19ae;
+  color: #A45A1F;
 }
 .navbar .navbar-nav .nav-link.show {
-  color: #6d19ae;
+  color: #A45A1F;
 }
 .navbar .dropdown-menu {
   background: #FAF6F1;
   border-radius: 0;
-  border-top: 5px solid #6d19ae;
+  border-top: 5px solid #A45A1F;
 }
 .navbar .dropdown-menu .dropdown-item {
   font: 20px "jersey 15", Inter, Arial;
   text-transform: uppercase;
-  color: #6d19ae;
+  color: #A45A1F;
 }
 .navbar .btn {
   margin-left: 10px;
@@ -32,6 +32,10 @@
 .btn {
   font: 20px "jersey 15", Inter, Arial;
   border-radius: 0;
+}
+
+.card {
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */

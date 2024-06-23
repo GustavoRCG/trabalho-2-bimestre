@@ -1,0 +1,231 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'metro';
+    src: url('../fonts/MetroPhotograph-DemoVersion-Regular.otf') format('opentype');
+}
+
+* {
+    /* retirar a margem externa */
+    margin: 0;
+    /* retirar a margem interna */
+    padding: 0;
+}
+
+/* formatar o corpo */
+body {
+    font-family: Arial, Verdana;
+    font-size: 16px;
+    background-color: rgb(216, 239, 247);
+    
+}
+
+
+
+.header {
+    width: 100%;
+    background: #FFF;
+    box-shadow: 0 0 10px #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    
+}
+
+
+
+.header .header_logo{
+    float: left;
+}
+
+img{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.header .header_nav{
+    display: block;
+    width: auto;
+    float: right;
+    font: 20px "Teko";
+        
+}
+
+.header .header_nav ul li {
+    padding: 10px;
+    display: inline;
+}
+
+
+header .header_nav ul li a {
+    color: rgb(232, 84, 10);
+    text-decoration: none;
+    font-family: "Teko", Arial, Helvetica, sans-serif;
+    list-style: none;
+    
+}
+
+.header .header_nav ul {
+    list-style: none;
+    
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+
+.img_inicial img {
+    min-height: 500px;
+    width: 100%;
+}
+
+h1 {
+    /* centralizar */
+    text-align: center;
+    /* maiúsculo */
+    text-transform: uppercase;
+    /* tamanho da fonte */
+    font-size: 60px;
+    line-height: 1.5;
+    font-family: 'metro';
+}
+
+p{
+    font: 20px ;
+    margin: 0px;
+    line-height: 25px;
+    
+
+}
+
+.imagens_Jogo{
+    padding: 110px;
+    box-sizing: border-box;
+
+}
+
+
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.centro {
+    text-align: center;
+    
+}
+
+.centro1 {
+    text-align: left;
+    justify-content: center;
+}
+
+.centro1 h1 {
+    font-family: 'metro';
+}
+
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    
+}
+
+.botao{
+    text-decoration: none;
+    background: rgb(9, 130, 9);
+    color: #FFF;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 10px;
+    
+}
+
+#inicio{
+    
+   padding-left: 40px;
+   /*sombra*/
+   box-shadow: 0 0 10px #131313;
+   /*borda arredondada**/
+   border-radius: 10%;
+   /*margem externa*/
+   margin: 100px;
+   background-color:#DCDCDC;
+   
+   
+}
+
+.coluna img{
+    /*largura*/
+    width: 80%;
+    /*arredondar cantos img parte superior, por isso tem somente 2 valores (se colocar somente um valor vai arredondar os quatro lados)*/
+    border-radius: 10px 10px 10px 10px;
+    height: 460px;
+    margin-left: 68px;
+
+}
+
+#contato{
+    background-color: #F1F1F1;
+}
+
+input, textarea {
+    /*largura*/
+    width: 100%;
+    /*borda*/
+    border: 1px solid #CCC;
+    /*margem interna*/
+    padding: 10px;
+    /*retirar os 20px dos 100% do width (minha borda não pode passar de 100%*/
+    box-sizing: border-box;
+     /*dar um espaço entre os labels*/
+    margin-bottom: 10px;
+}
+
+label {
+    /*negrito*/
+    font-weight: bold;
+    /*dar um espaço entre os labels*/
+    margin-bottom: 10px;
+    display: block;
+}
+button {
+    background-color: rgba(164, 3, 251, 0.755);
+    padding: 10px;  
+    border: 10px;
+    margin-top: 10px;/*margem em cima do botão*/
+    border-radius: 10px;
+
+}
+
+footer {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.footer-menu-item{
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+
+    
+    
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 430px) {
+    
+}

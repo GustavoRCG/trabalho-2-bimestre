@@ -27,6 +27,25 @@
 </head>
 
 <body>
+
+  <?php
+  //buscar os dados da api de games
+  $url = "https://localhost/Frivo/api/games.php";
+  $context = stream_context_create(
+    array(
+      "ssl" => array(
+        "verify_peer" => false,
+        "verify_peer_name" => false,
+      ),
+    ));
+  $dadosApi = file_get_contents($url, false, $context);
+  //importar dados da API
+  $dadosApi = file_get_contents($url);
+  //transforamr de json para array ou objeto
+  $dadosJogos = json_decode($dadosApi);
+  //print_r($dadosJogos);
+  ?>
+
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php">
@@ -49,32 +68,72 @@
               Games
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">A Trilha</a></li>
+              <li><a class="dropdown-item" href="#">Labfy Gize</a></li>
+              <li><a class="dropdown-item" href="#">Fuja das Cobras</a></li>
+              <li><a class="dropdown-item" href="#">As Trilhas do Labirinto</a></li>
             </ul>
           </li>
         </ul>
         <div class="d-flex">
-            <a href="arquivo.zip"
-            title="download dos arquivos"
-            class="btn btn-warning">
-              <i class="fas fa-download"></i>
-              Arquivos
+          <a href="arquivo.zip" title="download dos arquivos" class="btn btn-warning">
+            <i class="fas fa-download"></i>
+            Arquivos
           </a>
-          <a href="contato" title="contato"
-          class="btn btn-info">
-          <i class=" fas fa-envelope"></i>
-          Entre em Contato
-        </a>
+          <a href="contato" title="contato" class="btn btn-info">
+            <i class=" fas fa-envelope"></i>
+            Entre em Contato
+          </a>
         </div>
       </div>
     </div>
   </nav>
 
+  <main>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagens/egito.png" class="d-block w-100" alt="LabfyGize" href="index.php">
+        </div>
+        <div class="carousel-item">
+          <img src="imagens/imagens/aTrilha.imgs/imagemjogo.png" class="d-block w-100" alt="A Trilha">
+        </div>
+        <div class="carousel-item">
+          <img src="imagens/imagem1.png" class="d-block w-100" alt="As Trilhas do Labirinto">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </main>
+  <div class="container">
+    <h1 class="text-center">Melhores Jogos</h1>
+    <div class="row">
+      <?php
+      foreach ($dadosJogos as $dados) {
+        ?>
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <img src="<?php echo $dados->poster; ?>" alt="<?php echo $dados->nome ?>" class="card-img-top">
+          </div>
+        </div>
+        <?php
+      }
+      ?>
+
+
+    </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script scr="js/aos.js"></script>
   <script scr="js/fslightbox.js"></script>
