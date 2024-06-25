@@ -30,7 +30,7 @@
 
   <?php
   //buscar os dados da api de games
-  $url = "https://localhost/Frivo/api/games.php";
+  $url = "http://localhost/Frivo/api/games.php";
   $context = stream_context_create(
     array(
       "ssl" => array(
@@ -90,6 +90,31 @@
   </nav>
 
   <main>
+        <?php
+            //print_r($_GET);
+            $pagina = "home";
+            //verificar se foi clicado em algum menu
+            if (isset($_GET["pagina"])) {
+                $pagina = $_GET["pagina"] ?? "home";
+                // games/1
+                $pagina = explode("/", $pagina);
+                //print_r($pagina);
+                $codigo = $pagina[1] ?? NULL;
+                $pagina = $pagina[0] ?? "home";
+            }
+
+            $pagina = "pages/{$pagina}.php";
+
+            if (file_exists($pagina)) {
+                include $pagina;
+            } else {
+                include "pages/erro.php";
+            }
+        ?>
+    </main>
+
+
+
     <div id="carouselExampleFade" class="carousel slide carousel-fade">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -111,7 +136,8 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </main>
+
+
   <div class="container">
     <h1 class="text-center">Melhores Jogos</h1>
     <div class="row">
