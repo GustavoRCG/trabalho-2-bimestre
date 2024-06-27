@@ -37,7 +37,8 @@
         "verify_peer" => false,
         "verify_peer_name" => false,
       ),
-    ));
+    )
+  );
   $dadosApi = file_get_contents($url, false, $context);
   //importar dados da API
   $dadosApi = file_get_contents($url);
@@ -68,10 +69,11 @@
               Games
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">A Trilha</a></li>
-              <li><a class="dropdown-item" href="#">Labfy Gize</a></li>
-              <li><a class="dropdown-item" href="#">Fuja das Cobras</a></li>
-              <li><a class="dropdown-item" href="#">As Trilhas do Labirinto</a></li>
+              <?php
+              foreach ($dadosJogos as $dados) {
+                echo "<li><a class='dropdown-item' href='game/{$dados->id}'>{$dados->nome}</a></li>";
+              }
+              ?>
             </ul>
           </li>
         </ul>
@@ -90,75 +92,28 @@
   </nav>
 
   <main>
-        <?php
-            //print_r($_GET);
-            $pagina = "home";
-            //verificar se foi clicado em algum menu
-            if (isset($_GET["pagina"])) {
-                $pagina = $_GET["pagina"] ?? "home";
-                // games/1
-                $pagina = explode("/", $pagina);
-                //print_r($pagina);
-                $codigo = $pagina[1] ?? NULL;
-                $pagina = $pagina[0] ?? "home";
-            }
+    <?php
+    //print_r($_GET);
+    $pagina = "home";
+    //verificar se foi clicado em algum menu
+    if (isset($_GET["pagina"])) {
+      $pagina = $_GET["pagina"] ?? "home";
+      // games/1
+      $pagina = explode("/", $pagina);
+      //print_r($pagina);
+      $codigo = $pagina[1] ?? NULL;
+      $pagina = $pagina[0] ?? "home";
+    }
 
-            $pagina = "pages/{$pagina}.php";
+    $pagina = "pages/{$pagina}.php";
 
-            if (file_exists($pagina)) {
-                include $pagina;
-            } else {
-                include "pages/erro.php";
-            }
-        ?>
-    </main>
-
-
-
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="imagens/egito.png" class="d-block w-100" alt="LabfyGize" href="index.php">
-        </div>
-        <div class="carousel-item">
-          <img src="imagens/imagens/aTrilha.imgs/imagemjogo.png" class="d-block w-100" alt="A Trilha">
-        </div>
-        <div class="carousel-item">
-          <img src="imagens/imagem1.png" class="d-block w-100" alt="As Trilhas do Labirinto">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
-
-  <div class="container">
-    <h1 class="text-center">Melhores Jogos</h1>
-    <div class="row">
-      <?php
-      foreach ($dadosJogos as $dados) {
-        ?>
-        <div class="col-12 col-md-4">
-          <div class="card">
-            <img src="<?php echo $dados->poster; ?>" alt="<?php echo $dados->nome ?>" class="card-img-top">
-          </div>
-        </div>
-        <?php
-      }
-      ?>
-
-
-    </div>
-  </div>
-
-  </div>
-  </div>
+    if (file_exists($pagina)) {
+      include $pagina;
+    } else {
+      include "pages/erro.php";
+    }
+    ?>
+  </main>
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script scr="js/aos.js"></script>

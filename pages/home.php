@@ -31,3 +31,32 @@ $dadosBanner = json_decode($dadosApi);
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+<main>
+     <div class="container">
+    <h1 class="text-center">Melhores Jogos</h1>
+    <div class="row">
+      <?php
+      foreach ($dadosJogos as $dados) {
+        ?>
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <img src="<?php echo $dados->poster; ?>" alt="<?php echo $dados->nome ?>"  class="card-img-top">
+            <div class="card-body text-center">
+                <p><strong><?=$dados->nome?></strong></p>
+                <p>
+                 <a href="game/<?$dados->id?>" class="btn btn-danger">
+                    <i class="fas fa-search"></i>
+                    Detalhes do Jogo
+                 </a>
+                </p>
+            </div>
+        </div>
+        </div>
+        <?php
+      }
+      ?>
+
+
+    </div>
+</main>
